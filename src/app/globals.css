@@ -88,6 +88,16 @@ section {
   scroll-margin-top: 80px;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes ship-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.85); }
+  }
+  .anim-ship-pulse {
+    animation: ship-pulse 2s ease-in-out infinite;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

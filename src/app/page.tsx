@@ -1,9 +1,10 @@
-import ThemeToggle from "@/components/ThemeToggle";
+import TopBar from "@/components/TopBar";
 
 export default function Page() {
   return (
-    <main className="p-8">
-      <ThemeToggle />
-    </main>
+    <>
+      <TopBar />
+      <main />
+    </>
   );
 }
