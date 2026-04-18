@@ -124,6 +124,10 @@ section {
   transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
+.project-card {
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .metric-card:hover {
     border-color: var(--amber);
@@ -132,6 +136,17 @@ section {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
   }
   [data-theme="light"] .metric-card:hover {
+    box-shadow: 4px 4px 0 var(--line);
+  }
+
+  .project-card:hover {
+    border-color: var(--amber);
+  }
+  [data-theme="dark"] .project-card:hover {
+    box-shadow: 0 14px 36px
+      color-mix(in srgb, var(--amber) 18%, rgba(0, 0, 0, 0.5));
+  }
+  [data-theme="light"] .project-card:hover {
     box-shadow: 4px 4px 0 var(--line);
   }
 }
