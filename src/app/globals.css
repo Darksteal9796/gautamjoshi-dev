@@ -108,6 +108,22 @@ section {
   display: inline-block;
 }
 
+.metric-card {
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .metric-card:hover {
+    border-color: var(--amber);
+  }
+  [data-theme="dark"] .metric-card:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  }
+  [data-theme="light"] .metric-card:hover {
+    box-shadow: 4px 4px 0 var(--line);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   @keyframes ship-pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
