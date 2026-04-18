@@ -82,7 +82,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-[10px] border border-line bg-panel p-6 md:p-8 min-h-[360px] flex items-center justify-center">
+        <div className="rounded-[10px] border border-line bg-panel p-5 md:p-6">
           <OrbitGraph />
         </div>
       </div>
