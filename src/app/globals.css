@@ -108,6 +108,18 @@ section {
   display: inline-block;
 }
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.bg-amber-tint {
+  background-color: color-mix(in srgb, var(--amber) 6%, transparent);
+}
+
 .metric-card {
   transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
