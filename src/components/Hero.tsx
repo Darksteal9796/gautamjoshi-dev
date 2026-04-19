@@ -51,7 +51,7 @@ export default function Hero() {
             {" — verified engineer"}
           </p>
           <HeroH1
-            className="hero-entrance mt-4 font-bold leading-[0.95] text-fg"
+            className="hero-entrance mt-4 font-bold leading-[0.95] text-fg break-words"
             style={{
               fontSize: "clamp(34px, 6vw, 84px)",
               animationDelay: "0.2s",

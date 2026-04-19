@@ -77,7 +77,7 @@ function ProjectCard({
       </header>
 
       <h3
-        className={`mt-4 font-semibold text-fg leading-tight ${project.featured ? "text-[28px]" : "text-[22px]"}`}
+        className={`mt-4 font-semibold text-fg leading-tight break-words ${project.featured ? "text-[28px]" : "text-[22px]"}`}
       >
         {project.name}
       </h3>

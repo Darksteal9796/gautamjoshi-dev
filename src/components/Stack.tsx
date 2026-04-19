@@ -31,12 +31,12 @@ export default function Stack() {
             className="grid grid-cols-2 min-[720px]:grid-cols-3 min-[1100px]:grid-cols-5 gap-x-6 gap-y-7"
           >
             {skillCategories.map((cat) => (
-              <div key={cat.name}>
-                <div className="flex items-baseline justify-between border-b border-line pb-2 mb-3">
-                  <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-amber font-semibold">
+              <div key={cat.name} className="min-w-0">
+                <div className="flex items-baseline justify-between gap-2 border-b border-line pb-2 mb-3">
+                  <span className="font-mono text-[11px] tracking-[0.12em] uppercase text-amber font-semibold break-words min-w-0">
                     {cat.name}
                   </span>
-                  <span className="font-mono text-[10px] text-dim tabular-nums">
+                  <span className="font-mono text-[10px] text-dim tabular-nums shrink-0">
                     {String(cat.items.length).padStart(2, "0")}
                   </span>
                 </div>

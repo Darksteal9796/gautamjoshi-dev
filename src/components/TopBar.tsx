@@ -35,16 +35,16 @@ export default function TopBar() {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="inline-flex items-center gap-2 font-mono text-[13px] text-fg hover:text-amber transition-colors"
+            className="inline-flex items-center gap-2 min-w-0 font-mono text-[13px] text-fg hover:text-amber transition-colors"
             aria-label="Gautam Joshi — home"
           >
             <span
               aria-hidden="true"
-              className="inline-block w-2 h-2 rounded-full bg-amber shadow-[0_0_8px_var(--amber)]"
+              className="inline-block shrink-0 w-2 h-2 rounded-full bg-amber shadow-[0_0_8px_var(--amber)]"
             />
-            <span>
+            <span className="truncate">
               Gautam<b className="text-amber font-bold">Joshi</b>
-              <span className="text-dim"> / console</span>
+              <span className="text-dim hidden min-[420px]:inline"> / console</span>
             </span>
           </Link>
 

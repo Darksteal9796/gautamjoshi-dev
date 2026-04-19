@@ -57,7 +57,7 @@ export default function Now() {
                     />
                   </span>
 
-                  <p className="text-[13px] leading-[1.55] text-fg max-w-[48ch]">
+                  <p className="text-[13px] leading-[1.55] text-fg max-w-[48ch] min-w-0 break-words">
                     {entry.text}
                   </p>
 

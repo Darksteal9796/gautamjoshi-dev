@@ -47,9 +47,11 @@ body {
 html {
   scroll-behavior: smooth;
   background: var(--bg);
+  overflow-x: clip;
 }
 
 body {
+  min-width: 0;
   min-height: 100svh;
   background: var(--bg);
   color: var(--fg);
@@ -59,7 +61,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   isolation: isolate;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body::before {

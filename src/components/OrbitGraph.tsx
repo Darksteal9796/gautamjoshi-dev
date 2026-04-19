@@ -332,7 +332,7 @@ export default function OrbitGraph() {
         aria-live="polite"
       >
         {selected ? (
-          <span>
+          <span className="break-words min-w-0">
             <span className="text-amber font-semibold">{selected.label}</span>
             <span className="text-dim"> · </span>
             <span className="text-dim">{selected.category}</span>

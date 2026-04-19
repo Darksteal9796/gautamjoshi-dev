@@ -79,7 +79,7 @@ export default function Contact() {
                 "radial-gradient(ellipse 70% 50% at 0% 0%, color-mix(in srgb, var(--amber) 12%, transparent), transparent 60%), radial-gradient(ellipse 60% 40% at 100% 100%, color-mix(in srgb, var(--blue) 10%, transparent), transparent 60%)",
             }}
           >
-            <h3 className="font-semibold leading-[1.05] text-fg text-[40px] md:text-[56px]">
+            <h3 className="font-semibold leading-[1.05] text-fg break-words text-[clamp(30px,9vw,40px)] md:text-[56px]">
               Let&apos;s build{" "}
               <span className="text-amber">something.</span>
             </h3>
