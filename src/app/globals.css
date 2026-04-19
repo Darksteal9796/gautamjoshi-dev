@@ -149,11 +149,13 @@ section {
 }
 
 .metric-card {
-  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  will-change: transform;
 }
 
 .project-card {
-  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+  will-change: transform;
 }
 
 .tilt-panel {

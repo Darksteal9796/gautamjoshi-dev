@@ -180,32 +180,32 @@ export default function OrbitGraph() {
           cy={ORBIT_CY}
           r={RING_RADII[1]}
           fill="none"
-          stroke="var(--line)"
-          strokeOpacity={selected?.ring === 1 ? 0.9 : 0.35}
+          stroke="var(--fg)"
+          strokeOpacity={selected?.ring === 1 ? 0.85 : 0.22}
         />
         <circle
           cx={ORBIT_CX}
           cy={ORBIT_CY}
           r={RING_RADII[2]}
           fill="none"
-          stroke="var(--line)"
-          strokeOpacity={selected?.ring === 2 ? 0.9 : 0.35}
+          stroke="var(--fg)"
+          strokeOpacity={selected?.ring === 2 ? 0.85 : 0.22}
         />
         <circle
           cx={ORBIT_CX}
           cy={ORBIT_CY}
           r={RING_RADII[3]}
           fill="none"
-          stroke="var(--line)"
-          strokeOpacity={selected?.ring === 3 ? 0.9 : 0.35}
+          stroke="var(--fg)"
+          strokeOpacity={selected?.ring === 3 ? 0.85 : 0.22}
         />
         <circle
           cx={ORBIT_CX}
           cy={ORBIT_CY}
           r={DECO_RING_RADIUS}
           fill="none"
-          stroke="var(--line)"
-          strokeOpacity={0.25}
+          stroke="var(--fg)"
+          strokeOpacity={0.15}
           strokeDasharray="2 7"
         />
 
@@ -220,7 +220,7 @@ export default function OrbitGraph() {
             x2={ORBIT_CX}
             y2={ORBIT_CY}
             stroke={RING_COLOR[l.skill.ring as RingKey]}
-            strokeOpacity={0.22}
+            strokeOpacity={0.35}
             strokeWidth={1}
           />
         ))}
