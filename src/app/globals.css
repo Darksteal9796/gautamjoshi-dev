@@ -159,7 +159,10 @@ section {
 }
 
 .tilt-panel {
-  transition: transform 200ms ease;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
   will-change: transform;
   transform-style: preserve-3d;
 }
@@ -209,6 +212,17 @@ section {
       color-mix(in srgb, var(--amber) 18%, rgba(0, 0, 0, 0.5));
   }
   [data-theme="light"] .project-card:hover {
+    box-shadow: 4px 4px 0 var(--line);
+  }
+
+  .tilt-panel:hover {
+    border-color: var(--amber);
+  }
+  [data-theme="dark"] .tilt-panel:hover {
+    box-shadow: 0 14px 36px
+      color-mix(in srgb, var(--amber) 14%, rgba(0, 0, 0, 0.45));
+  }
+  [data-theme="light"] .tilt-panel:hover {
     box-shadow: 4px 4px 0 var(--line);
   }
 }
