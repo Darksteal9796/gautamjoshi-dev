@@ -18,7 +18,14 @@ import { systemPrompt } from "@/content/system-prompt";
 export const runtime = "edge";
 
 const CHAT_MODEL =
-  process.env.CHAT_MODEL ?? "anthropic/claude-haiku-4.5";
+  process.env.CHAT_MODEL ?? "qwen/qwen3-next-80b-a3b-instruct:free";
+const CHAT_FALLBACK_MODELS = (
+  process.env.CHAT_FALLBACK_MODELS ??
+  "meta-llama/llama-3.3-70b-instruct:free"
+)
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
 const MAX_TOKENS = 200;
 const TEMPERATURE = 0.5;
 
@@ -108,7 +115,8 @@ export async function POST(req: Request): Promise<Response> {
       };
 
       try {
-        const streaming = await client.chat.completions.create({
+        // OpenRouter extension: `models` is a fallback chain, absent from the OpenAI SDK types.
+        const streaming = (await client.chat.completions.create({
           model: CHAT_MODEL,
           max_tokens: MAX_TOKENS,
           temperature: TEMPERATURE,
@@ -118,7 +126,13 @@ export async function POST(req: Request): Promise<Response> {
             ...parsed.value.messages,
           ],
           stream_options: { include_usage: true },
-        });
+          ...(CHAT_FALLBACK_MODELS.length > 0 && {
+            models: CHAT_FALLBACK_MODELS,
+          }),
+        } as Parameters<typeof client.chat.completions.create>[0])) as AsyncIterable<{
+          choices?: Array<{ delta?: { content?: string | null } }>;
+          usage?: { prompt_tokens?: number; completion_tokens?: number };
+        }>;
 
         let usageInput = 0;
         let usageOutput = 0;
