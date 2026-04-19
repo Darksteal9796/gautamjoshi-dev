@@ -3,6 +3,7 @@ import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
 import Metrics from "@/components/Metrics";
 import Projects from "@/components/Projects";
+import Stack from "@/components/Stack";
 import TopBar from "@/components/TopBar";
 
 export default function Page() {
@@ -15,6 +16,7 @@ export default function Page() {
         <About />
         <Experience />
         <Projects />
+        <Stack />
       </main>
     </>
   );

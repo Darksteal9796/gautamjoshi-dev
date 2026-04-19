@@ -128,6 +128,15 @@ section {
   transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
+.skill-item {
+  transition: border-color 150ms ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .skill-item:hover {
+    border-color: var(--amber);
+  }
+}
+
 @media (hover: hover) and (pointer: fine) {
   .metric-card:hover {
     border-color: var(--amber);
