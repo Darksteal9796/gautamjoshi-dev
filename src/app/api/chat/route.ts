@@ -18,10 +18,10 @@ import { systemPrompt } from "@/content/system-prompt";
 export const runtime = "edge";
 
 const CHAT_MODEL =
-  process.env.CHAT_MODEL ?? "qwen/qwen3-next-80b-a3b-instruct:free";
+  process.env.CHAT_MODEL ?? "openai/gpt-oss-20b:free";
 const CHAT_FALLBACK_MODELS = (
   process.env.CHAT_FALLBACK_MODELS ??
-  "meta-llama/llama-3.3-70b-instruct:free"
+  "z-ai/glm-4.5-air:free,google/gemma-3-27b-it:free,meta-llama/llama-3.3-70b-instruct:free,qwen/qwen3-next-80b-a3b-instruct:free"
 )
   .split(",")
   .map((s) => s.trim())
