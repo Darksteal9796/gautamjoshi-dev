@@ -161,6 +161,21 @@ section {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+  @keyframes ping-ring {
+    0% { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(2); opacity: 0; }
+  }
+  @keyframes cell-fade-in {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .anim-ping-ring {
+    animation: ping-ring 2s ease-out infinite;
+  }
+  .anim-cell-fade {
+    animation: cell-fade-in 220ms ease-out both;
+  }
+
   @keyframes ship-pulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(0.85); }

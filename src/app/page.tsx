@@ -2,6 +2,7 @@ import About from "@/components/About";
 import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
 import Metrics from "@/components/Metrics";
+import Now from "@/components/Now";
 import Projects from "@/components/Projects";
 import Stack from "@/components/Stack";
 import TopBar from "@/components/TopBar";
@@ -17,6 +18,7 @@ export default function Page() {
         <Experience />
         <Projects />
         <Stack />
+        <Now />
       </main>
     </>
   );
