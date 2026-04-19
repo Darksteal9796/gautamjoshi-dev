@@ -156,6 +156,12 @@ section {
   transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
 }
 
+.tilt-panel {
+  transition: transform 200ms ease;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
 .skill-item {
   transition: border-color 150ms ease;
 }
@@ -250,17 +256,19 @@ section {
     transform: none;
   }
 
+  @keyframes stagger-fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
   [data-reveal] [data-stagger] > * {
     opacity: 0;
     transform: translateY(12px);
-    transition:
-      opacity 0.55s cubic-bezier(0.2, 0.7, 0.3, 1),
-      transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
-    transition-delay: calc(var(--i, 0) * 70ms);
   }
   [data-reveal].in [data-stagger] > * {
     opacity: 1;
     transform: none;
+    animation: stagger-fade-up 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 70ms);
   }
 
   .section-number {

@@ -1,5 +1,6 @@
 import { skillCategories } from "@/content/skills";
 import { proficiencyWidth } from "@/lib/stack-proficiency";
+import TiltPanel from "./TiltPanel";
 
 export default function Stack() {
   return (
@@ -24,7 +25,7 @@ export default function Stack() {
           </span>
         </header>
 
-        <div className="rounded-[10px] border border-line bg-panel p-6 md:p-8">
+        <TiltPanel className="tilt-panel rounded-[10px] border border-line bg-panel p-6 md:p-8">
           <div
             data-stagger
             className="grid grid-cols-2 min-[720px]:grid-cols-3 min-[1100px]:grid-cols-5 gap-x-6 gap-y-7"
@@ -67,7 +68,7 @@ export default function Stack() {
               </div>
             ))}
           </div>
-        </div>
+        </TiltPanel>
       </div>
     </section>
   );

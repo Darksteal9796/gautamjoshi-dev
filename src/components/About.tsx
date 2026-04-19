@@ -1,4 +1,5 @@
 import { aboutChips, aboutLead } from "@/content/about";
+import TiltPanel from "./TiltPanel";
 
 const LEAD_COLOR = {
   amber: "text-amber font-semibold",
@@ -28,7 +29,7 @@ export default function About() {
           </span>
         </header>
 
-        <div className="rounded-[10px] border border-line bg-panel p-6 md:p-8">
+        <TiltPanel className="tilt-panel rounded-[10px] border border-line bg-panel p-6 md:p-8">
           <p className="text-[20px] leading-[1.45] max-w-[58ch] text-fg">
             {aboutLead.map((seg, i) => {
               if (seg.kind === "text") return <span key={i}>{seg.value}</span>;
@@ -54,7 +55,7 @@ export default function About() {
               </li>
             ))}
           </ul>
-        </div>
+        </TiltPanel>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import CountUp from "./CountUp";
 import HeroH1 from "./HeroH1";
 import OrbitGraph from "./OrbitGraph";
+import TiltPanel from "./TiltPanel";
 
 type StatColor = "amber" | "blue" | "fg";
 
@@ -95,9 +96,12 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-entrance rounded-[10px] border border-line bg-panel p-5 md:p-6" style={{ animationDelay: "0.3s" }}>
+        <TiltPanel
+          className="hero-entrance tilt-panel rounded-[10px] border border-line bg-panel p-5 md:p-6"
+          style={{ animationDelay: "0.3s" }}
+        >
           <OrbitGraph />
-        </div>
+        </TiltPanel>
       </div>
     </section>
   );

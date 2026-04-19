@@ -1,3 +1,5 @@
+import TiltPanel from "./TiltPanel";
+
 type ContactRow = {
   label: string;
   value: string;
@@ -70,8 +72,8 @@ export default function Contact() {
         </header>
 
         <div className="grid gap-3.5 grid-cols-1 min-[720px]:grid-cols-2">
-          <div
-            className="relative overflow-hidden rounded-[10px] border border-line bg-panel p-7 md:p-9"
+          <TiltPanel
+            className="tilt-panel relative overflow-hidden rounded-[10px] border border-line bg-panel p-7 md:p-9"
             style={{
               backgroundImage:
                 "radial-gradient(ellipse 70% 50% at 0% 0%, color-mix(in srgb, var(--amber) 12%, transparent), transparent 60%), radial-gradient(ellipse 60% 40% at 100% 100%, color-mix(in srgb, var(--blue) 10%, transparent), transparent 60%)",
@@ -110,9 +112,9 @@ export default function Contact() {
                 Resume.pdf ↗
               </a>
             </div>
-          </div>
+          </TiltPanel>
 
-          <div className="rounded-[10px] border border-line bg-panel p-6 md:p-7">
+          <TiltPanel className="tilt-panel rounded-[10px] border border-line bg-panel p-6 md:p-7">
             <ul className="flex flex-col divide-y divide-line divide-dashed">
               {CONTACT_ROWS.map((row) => {
                 const valueNode = row.href ? (
@@ -152,7 +154,7 @@ export default function Contact() {
                 );
               })}
             </ul>
-          </div>
+          </TiltPanel>
         </div>
       </div>
     </section>

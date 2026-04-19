@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { experiences } from "@/content/experience";
+import TiltPanel from "./TiltPanel";
 
 export default function Experience() {
   const [activeIdx, setActiveIdx] = useState(0);
@@ -29,7 +30,7 @@ export default function Experience() {
           </span>
         </header>
 
-        <div className="rounded-[10px] border border-line bg-panel p-5 md:p-7">
+        <TiltPanel className="tilt-panel rounded-[10px] border border-line bg-panel p-5 md:p-7">
           <div className="no-scrollbar overflow-x-auto min-[720px]:hidden -mx-1 mb-5">
             <div
               role="tablist"
@@ -62,23 +63,26 @@ export default function Experience() {
             <nav
               aria-label="Experience list"
               role="tablist"
-              className="hidden min-[720px]:block relative"
+              className="hidden min-[720px]:flex flex-col h-full relative"
             >
               <span
                 aria-hidden="true"
                 className="absolute left-[7px] top-2 bottom-2 w-px bg-line"
               />
-              <ul data-stagger className="flex flex-col gap-2">
+              <ul
+                data-stagger
+                className="flex-1 flex flex-col gap-2 min-h-0"
+              >
                 {experiences.map((e, i) => {
                   const isActive = i === activeIdx;
                   return (
-                    <li key={e.id}>
+                    <li key={e.id} className="flex-1 min-h-0">
                       <button
                         role="tab"
                         aria-selected={isActive}
                         aria-controls="experience-card"
                         onClick={() => setActiveIdx(i)}
-                        className={`group relative w-full text-left pl-7 pr-3 py-2.5 rounded-[8px] border transition-colors font-mono text-[11px] tracking-[0.08em] ${
+                        className={`group relative w-full h-full text-left pl-7 pr-3 py-3 rounded-[8px] border transition-colors font-mono text-[12px] tracking-[0.08em] flex items-center ${
                           isActive
                             ? "border-amber bg-amber-tint text-amber"
                             : "border-transparent text-dim hover:text-fg hover:border-line"
@@ -86,7 +90,7 @@ export default function Experience() {
                       >
                         <span
                           aria-hidden="true"
-                          className={`absolute left-[2.5px] top-[13px] w-[11px] h-[11px] rounded-full border ${
+                          className={`absolute left-[2.5px] top-1/2 -translate-y-1/2 w-[11px] h-[11px] rounded-full border ${
                             isActive
                               ? "bg-amber border-amber"
                               : "bg-panel border-line group-hover:border-dim"
@@ -139,7 +143,7 @@ export default function Experience() {
               </div>
             </article>
           </div>
-        </div>
+        </TiltPanel>
       </div>
     </section>
   );

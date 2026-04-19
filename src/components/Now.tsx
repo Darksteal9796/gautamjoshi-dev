@@ -1,4 +1,5 @@
 import Heatmap from "./Heatmap";
+import TiltPanel from "./TiltPanel";
 import { nowEntries, type NowColor } from "@/content/now";
 
 const DOT_COLOR: Record<NowColor, string> = {
@@ -31,7 +32,7 @@ export default function Now() {
         </header>
 
         <div className="grid gap-3.5 grid-cols-1 min-[720px]:grid-cols-2">
-          <div className="rounded-[10px] border border-line bg-panel p-6 md:p-7">
+          <TiltPanel className="tilt-panel rounded-[10px] border border-line bg-panel p-6 md:p-7">
             <div className="flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-dim mb-4">
               <span className="text-amber font-semibold">[LIVE]</span>
               <span>currently working on</span>
@@ -66,11 +67,11 @@ export default function Now() {
                 </li>
               ))}
             </ol>
-          </div>
+          </TiltPanel>
 
-          <div className="rounded-[10px] border border-line bg-panel p-6 md:p-7">
+          <TiltPanel className="tilt-panel rounded-[10px] border border-line bg-panel p-6 md:p-7">
             <Heatmap />
-          </div>
+          </TiltPanel>
         </div>
       </div>
     </section>
