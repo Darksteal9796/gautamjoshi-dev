@@ -123,7 +123,10 @@ export default function Metrics() {
   return (
     <section aria-label="Key metrics" className="px-3.5 pb-10">
       <div className="mx-auto max-w-[1380px]">
-        <div className="grid grid-cols-2 min-[1100px]:grid-cols-4 gap-3.5">
+        <div
+          data-stagger
+          className="grid grid-cols-2 min-[1100px]:grid-cols-4 gap-3.5"
+        >
           {metrics.map((m) => (
             <MetricCard key={m.name} metric={m} />
           ))}

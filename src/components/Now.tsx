@@ -16,12 +16,12 @@ export default function Now() {
     >
       <div className="mx-auto max-w-[1380px]">
         <header className="grid grid-cols-[auto_1fr_auto] items-end gap-4 mb-5">
-          <span className="font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
+          <span className="section-number font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
             /05
           </span>
           <h2
             id="now-title"
-            className="font-mono text-[22px] font-semibold text-fg"
+            className="section-title-sweep font-mono text-[22px] font-semibold text-fg"
           >
             now<span className="text-dim">.log</span>
           </h2>
@@ -38,7 +38,7 @@ export default function Now() {
               <span>updated 2d ago</span>
             </div>
 
-            <ol className="flex flex-col gap-4">
+            <ol data-stagger className="flex flex-col gap-4">
               {nowEntries.map((entry, i) => (
                 <li key={entry.date} className="grid grid-cols-[auto_1fr_auto] gap-3 items-start">
                   <span className="relative flex items-center justify-center w-4 h-4 mt-1">

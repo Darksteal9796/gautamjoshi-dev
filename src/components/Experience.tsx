@@ -15,12 +15,12 @@ export default function Experience() {
     >
       <div className="mx-auto max-w-[1380px]">
         <header className="grid grid-cols-[auto_1fr_auto] items-end gap-4 mb-5">
-          <span className="font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
+          <span className="section-number font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
             /02
           </span>
           <h2
             id="experience-title"
-            className="font-mono text-[22px] font-semibold text-fg"
+            className="section-title-sweep font-mono text-[22px] font-semibold text-fg"
           >
             experience<span className="text-dim">.history</span>
           </h2>
@@ -68,7 +68,7 @@ export default function Experience() {
                 aria-hidden="true"
                 className="absolute left-[7px] top-2 bottom-2 w-px bg-line"
               />
-              <ul className="flex flex-col gap-2">
+              <ul data-stagger className="flex flex-col gap-2">
                 {experiences.map((e, i) => {
                   const isActive = i === activeIdx;
                   return (

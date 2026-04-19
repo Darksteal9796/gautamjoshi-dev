@@ -130,12 +130,12 @@ export default function Projects() {
     >
       <div className="mx-auto max-w-[1380px]">
         <header className="grid grid-cols-[auto_1fr_auto] items-end gap-4 mb-5">
-          <span className="font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
+          <span className="section-number font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
             /03
           </span>
           <h2
             id="projects-title"
-            className="font-mono text-[22px] font-semibold text-fg"
+            className="section-title-sweep font-mono text-[22px] font-semibold text-fg"
           >
             projects<span className="text-dim">[]</span>
           </h2>
@@ -144,7 +144,10 @@ export default function Projects() {
           </span>
         </header>
 
-        <div className="grid gap-3.5 grid-cols-1 min-[720px]:grid-cols-2 min-[1100px]:grid-cols-[1.4fr_1fr_1fr]">
+        <div
+          data-stagger
+          className="grid gap-3.5 grid-cols-1 min-[720px]:grid-cols-2 min-[1100px]:grid-cols-[1.4fr_1fr_1fr]"
+        >
           {projects.map((p, i) => (
             <ProjectCard key={p.slug} project={p} index={i} />
           ))}

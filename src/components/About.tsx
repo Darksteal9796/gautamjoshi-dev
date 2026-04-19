@@ -14,12 +14,12 @@ export default function About() {
     >
       <div className="mx-auto max-w-[1380px]">
         <header className="grid grid-cols-[auto_1fr_auto] items-end gap-4 mb-5">
-          <span className="font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
+          <span className="section-number font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
             /01
           </span>
           <h2
             id="about-title"
-            className="font-mono text-[22px] font-semibold text-fg"
+            className="section-title-sweep font-mono text-[22px] font-semibold text-fg"
           >
             about<span className="text-dim">()</span>
           </h2>

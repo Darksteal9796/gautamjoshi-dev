@@ -10,12 +10,12 @@ export default function Stack() {
     >
       <div className="mx-auto max-w-[1380px]">
         <header className="grid grid-cols-[auto_1fr_auto] items-end gap-4 mb-5">
-          <span className="font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
+          <span className="section-number font-mono text-[13px] tracking-[0.12em] text-amber font-semibold">
             /04
           </span>
           <h2
             id="stack-title"
-            className="font-mono text-[22px] font-semibold text-fg"
+            className="section-title-sweep font-mono text-[22px] font-semibold text-fg"
           >
             stack<span className="text-dim">.yaml</span>
           </h2>
@@ -25,7 +25,10 @@ export default function Stack() {
         </header>
 
         <div className="rounded-[10px] border border-line bg-panel p-6 md:p-8">
-          <div className="grid grid-cols-2 min-[720px]:grid-cols-3 min-[1100px]:grid-cols-5 gap-x-6 gap-y-7">
+          <div
+            data-stagger
+            className="grid grid-cols-2 min-[720px]:grid-cols-3 min-[1100px]:grid-cols-5 gap-x-6 gap-y-7"
+          >
             {skillCategories.map((cat) => (
               <div key={cat.name}>
                 <div className="flex items-baseline justify-between border-b border-line pb-2 mb-3">

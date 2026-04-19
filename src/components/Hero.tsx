@@ -1,4 +1,5 @@
 import CountUp from "./CountUp";
+import HeroH1 from "./HeroH1";
 import OrbitGraph from "./OrbitGraph";
 
 type StatColor = "amber" | "blue" | "fg";
@@ -40,14 +41,20 @@ export default function Hero() {
     >
       <div className="mx-auto max-w-[1380px] grid gap-3.5 grid-cols-1 min-[1100px]:grid-cols-[1.3fr_1fr]">
         <div className="rounded-[10px] border border-line bg-panel p-6 md:p-10">
-          <p className="font-mono text-[11px] tracking-[0.12em] text-dim">
+          <p
+            className="hero-entrance font-mono text-[11px] tracking-[0.12em] text-dim"
+            style={{ animationDelay: "0.05s" }}
+          >
             {"// ID "}
             <span className="text-green">#GJ-9796</span>
             {" — verified engineer"}
           </p>
-          <h1
-            className="mt-4 font-bold leading-[0.95] text-fg"
-            style={{ fontSize: "clamp(34px, 6vw, 84px)" }}
+          <HeroH1
+            className="hero-entrance mt-4 font-bold leading-[0.95] text-fg"
+            style={{
+              fontSize: "clamp(34px, 6vw, 84px)",
+              animationDelay: "0.2s",
+            }}
           >
             Gautam
             <br />
@@ -55,15 +62,21 @@ export default function Hero() {
             <span className="hero-caret anim-caret-blink" aria-hidden="true">
               _
             </span>
-          </h1>
-          <p className="mt-6 text-[18px] leading-snug max-w-[32ch] text-fg">
+          </HeroH1>
+          <p
+            className="hero-entrance mt-6 text-[18px] leading-snug max-w-[32ch] text-fg"
+            style={{ animationDelay: "0.35s" }}
+          >
             Senior AI Full-Stack Engineer building{" "}
             <b className="text-blue font-semibold">LLMs</b>,{" "}
             <b className="text-blue font-semibold">RAG pipelines</b> &amp;{" "}
             <b className="text-blue font-semibold">voice agents</b> — from
             fine-tune to production.
           </p>
-          <div className="mt-10 grid grid-cols-3 gap-5 max-w-[440px]">
+          <div
+            className="hero-entrance mt-10 grid grid-cols-3 gap-5 max-w-[440px]"
+            style={{ animationDelay: "0.5s" }}
+          >
             <Stat
               value={<CountUp target={4} suffix="+" pad={2} />}
               label="Years shipping"
@@ -82,7 +95,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="rounded-[10px] border border-line bg-panel p-5 md:p-6">
+        <div className="hero-entrance rounded-[10px] border border-line bg-panel p-5 md:p-6" style={{ animationDelay: "0.3s" }}>
           <OrbitGraph />
         </div>
       </div>
