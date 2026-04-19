@@ -19,13 +19,15 @@ export const runtime = "edge";
 
 const CHAT_MODEL =
   process.env.CHAT_MODEL ?? "openai/gpt-oss-20b:free";
+// OpenRouter caps the fallback chain at 3 models.
 const CHAT_FALLBACK_MODELS = (
   process.env.CHAT_FALLBACK_MODELS ??
-  "z-ai/glm-4.5-air:free,google/gemma-3-27b-it:free,meta-llama/llama-3.3-70b-instruct:free,qwen/qwen3-next-80b-a3b-instruct:free"
+  "z-ai/glm-4.5-air:free,meta-llama/llama-3.3-70b-instruct:free,qwen/qwen3-next-80b-a3b-instruct:free"
 )
   .split(",")
   .map((s) => s.trim())
-  .filter(Boolean);
+  .filter(Boolean)
+  .slice(0, 3);
 const MAX_TOKENS = 200;
 const TEMPERATURE = 0.5;
 
