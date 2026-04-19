@@ -17,7 +17,7 @@ export default function Page() {
     <>
       <ScrollProgress />
       <TopBar />
-      <main>
+      <main id="main-content">
         <Hero />
         <Reveal>
           <Metrics />
