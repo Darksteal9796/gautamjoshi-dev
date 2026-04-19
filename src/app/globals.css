@@ -307,6 +307,14 @@ section {
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
   }
+  @keyframes chat-fab-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes chat-panel-in {
+    from { opacity: 0; transform: translateY(6px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
   .anim-ship-pulse {
     animation: ship-pulse 2s ease-in-out infinite;
   }
@@ -315,6 +323,12 @@ section {
   }
   .anim-caret-blink {
     animation: caret-blink 1.1s infinite;
+  }
+  .anim-chat-fab-bob {
+    animation: chat-fab-bob 4s ease-in-out infinite;
+  }
+  .anim-chat-panel-in {
+    animation: chat-panel-in 180ms ease-out;
   }
 }
 
