@@ -135,6 +135,23 @@ section {
   .skill-item:hover {
     border-color: var(--amber);
   }
+  .contact-btn-solid:hover {
+    transform: translateY(-2px);
+  }
+  [data-theme="light"] .contact-btn-solid {
+    box-shadow: 2px 2px 0 var(--line);
+  }
+  [data-theme="light"] .contact-btn-solid:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--line);
+  }
+  [data-theme="light"] .contact-btn-ghost {
+    box-shadow: 2px 2px 0 var(--line);
+  }
+  [data-theme="light"] .contact-btn-ghost:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--line);
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
