@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { formatIST } from "@/lib/clock";
 
 const NAV_ITEMS = [
   { href: "#about", label: "about" },
@@ -13,19 +14,11 @@ const NAV_ITEMS = [
   { href: "#contact", label: "contact" },
 ] as const;
 
-const IST_FORMATTER = new Intl.DateTimeFormat("en-GB", {
-  timeZone: "Asia/Kolkata",
-  hour12: false,
-  hour: "2-digit",
-  minute: "2-digit",
-  second: "2-digit",
-});
-
 export default function TopBar() {
   const [time, setTime] = useState<string | null>(null);
 
   useEffect(() => {
-    const tick = () => setTime(IST_FORMATTER.format(new Date()));
+    const tick = () => setTime(formatIST());
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);

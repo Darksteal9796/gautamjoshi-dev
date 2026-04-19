@@ -1,6 +1,7 @@
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Metrics from "@/components/Metrics";
 import Now from "@/components/Now";
@@ -22,6 +23,7 @@ export default function Page() {
         <Now />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }
