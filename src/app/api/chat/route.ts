@@ -1,4 +1,4 @@
-import { getAnthropicClient } from "@/lib/anthropic";
+import { getChatClient } from "@/lib/chat-client";
 import {
   validateChatRequest,
 } from "@/lib/chat-validate";
@@ -17,7 +17,8 @@ import { systemPrompt } from "@/content/system-prompt";
 
 export const runtime = "edge";
 
-const CHAT_MODEL = "claude-haiku-4-5-20251001";
+const CHAT_MODEL =
+  process.env.CHAT_MODEL ?? "anthropic/claude-haiku-4.5";
 const MAX_TOKENS = 200;
 const TEMPERATURE = 0.5;
 
@@ -88,7 +89,7 @@ export async function POST(req: Request): Promise<Response> {
 
   let client;
   try {
-    client = getAnthropicClient();
+    client = getChatClient();
   } catch {
     return jsonResponse({ error: "chat unavailable" }, 500);
   }
@@ -97,44 +98,56 @@ export async function POST(req: Request): Promise<Response> {
 
   const stream = new ReadableStream<Uint8Array>({
     async start(controller) {
-      const write = (data: string) => {
-        controller.enqueue(encoder.encode(`data: ${data}\n\n`));
+      const writeEvent = (event: Record<string, unknown>) => {
+        controller.enqueue(
+          encoder.encode(`data: ${JSON.stringify(event)}\n\n`)
+        );
+      };
+      const writeRaw = (s: string) => {
+        controller.enqueue(encoder.encode(`data: ${s}\n\n`));
       };
 
       try {
-        const streaming = client.messages.stream({
+        const streaming = await client.chat.completions.create({
           model: CHAT_MODEL,
           max_tokens: MAX_TOKENS,
           temperature: TEMPERATURE,
-          system: [
-            {
-              type: "text",
-              text: systemPrompt,
-              cache_control: { type: "ephemeral" },
-            },
+          stream: true,
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...parsed.value.messages,
           ],
-          messages: parsed.value.messages,
+          stream_options: { include_usage: true },
         });
 
-        for await (const event of streaming) {
-          write(JSON.stringify(event));
+        let usageInput = 0;
+        let usageOutput = 0;
+
+        for await (const chunk of streaming) {
+          const delta = chunk.choices?.[0]?.delta?.content;
+          if (typeof delta === "string" && delta.length > 0) {
+            writeEvent({
+              type: "content_block_delta",
+              delta: { type: "text_delta", text: delta },
+            });
+          }
+          if (chunk.usage) {
+            usageInput = chunk.usage.prompt_tokens ?? usageInput;
+            usageOutput = chunk.usage.completion_tokens ?? usageOutput;
+          }
         }
 
-        try {
-          const finalMsg = await streaming.finalMessage();
-          const total =
-            (finalMsg.usage?.input_tokens ?? 0) +
-            (finalMsg.usage?.output_tokens ?? 0);
-          budgetState = recordTokens(budgetState, Date.now(), total);
-        } catch {
-          // ignore — stream already surfaced errors above
-        }
+        budgetState = recordTokens(
+          budgetState,
+          Date.now(),
+          usageInput + usageOutput
+        );
 
-        write("[DONE]");
+        writeRaw("[DONE]");
       } catch (err) {
         const message =
           err instanceof Error ? err.message : "unknown upstream error";
-        write(JSON.stringify({ type: "error", message }));
+        writeEvent({ type: "error", message });
       } finally {
         controller.close();
       }

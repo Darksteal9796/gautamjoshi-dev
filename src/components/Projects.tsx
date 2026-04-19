@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import {
   projects,
@@ -54,12 +55,17 @@ function ProjectCard({
   const projId = `PROJ-${String(index + 1).padStart(3, "0")}`;
 
   return (
+    <Link
+      href={`/projects/${project.slug}`}
+      className="block rounded-[10px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber"
+      aria-label={`Read more about ${project.name}`}
+    >
     <article
       ref={ref}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
       style={{ backgroundImage: TINT_GLOW[project.tint] }}
-      className="project-card relative rounded-[10px] border border-line bg-panel p-6 overflow-hidden will-change-transform"
+      className="project-card relative rounded-[10px] border border-line bg-panel p-6 overflow-hidden will-change-transform cursor-pointer h-full"
     >
       <header className="flex items-center justify-between gap-2">
         <span className="font-mono text-[10px] tracking-[0.12em] uppercase text-dim">
@@ -117,7 +123,13 @@ function ProjectCard({
           </span>
         ))}
       </div>
+
+      <div className="mt-5 pt-4 border-t border-dashed border-line flex items-center justify-between font-mono text-[10px] tracking-[0.12em] uppercase text-dim">
+        <span>Read case study</span>
+        <span aria-hidden="true" className="text-amber">→</span>
+      </div>
     </article>
+    </Link>
   );
 }
 

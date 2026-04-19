@@ -6,12 +6,12 @@ import ThemeToggle from "./ThemeToggle";
 import { formatIST } from "@/lib/clock";
 
 const NAV_ITEMS = [
-  { href: "#about", label: "about" },
-  { href: "#experience", label: "experience" },
-  { href: "#projects", label: "projects" },
-  { href: "#stack", label: "stack" },
-  { href: "#now", label: "now" },
-  { href: "#contact", label: "contact" },
+  { href: "/#about", label: "about" },
+  { href: "/#experience", label: "experience" },
+  { href: "/#projects", label: "projects" },
+  { href: "/#stack", label: "stack" },
+  { href: "/#now", label: "now" },
+  { href: "/#contact", label: "contact" },
 ] as const;
 
 export default function TopBar() {
@@ -53,13 +53,13 @@ export default function TopBar() {
             className="hidden min-[720px]:flex items-center gap-5 font-mono text-[11px] tracking-[0.15em] lowercase"
           >
             {NAV_ITEMS.map((item) => (
-              <a
+              <Link
                 key={item.href}
                 href={item.href}
                 className="text-dim hover:text-amber hover:-translate-y-px transition-all duration-150"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
 

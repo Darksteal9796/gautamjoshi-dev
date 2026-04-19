@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import ChatFab from "@/components/ChatFab";
+import Footer from "@/components/Footer";
+import ScrollProgress from "@/components/ScrollProgress";
+import TopBar from "@/components/TopBar";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -102,7 +106,11 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <ScrollProgress />
+        <TopBar />
         {children}
+        <Footer />
+        <ChatFab />
       </body>
     </html>
   );
